@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="..\css\config.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="home.html">
+                    <img src="..\logo.png" alt="Logo">
+                </a>
+            </div>
+            <div id="botao">
+                <a href="calendario.html">Calendário</a>
+                <a href="contas.html">Contas Salvas</a>
+                <a href="link.html">Sites Externos</a>
+                <a href="comunicados.html">Comunicados</a>
+            </div>
+            <div id="botoes">
+                <div id="botao1">
+                    <a href="perfil.html">
+                        <img src="..\perfil.png" alt="Perfil">
+                    </a>
+                </div>
+                <div id="botao2">
+                    <a href="config.html">
+                        <img src="..\config.png" alt="Configurações">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="config-container">
+            <h1>Configurações</h1>
+            
+            <!-- Abas de Navegação -->
+            <div class="tabs">
+                <button class="tablinks" onclick="openTab(event, 'aparencia')">Aparência</button>
+                <button class="tablinks" onclick="openTab(event, 'privacidade')">Privacidade</button>
+                <button class="tablinks" onclick="openTab(event, 'notificacoes')">Notificações</button>
+            </div>
+            
+            <!-- Conteúdo das Seções -->
+            <div id="aparencia" class="tabcontent">
+                <h2>Aparência</h2>
+                <label for="modoTema">Modo Escuro:</label>
+                <input type="checkbox" id="modoTema" name="modoTema">
+                <br>
+                <h2>Idioma</h2>
+                <label for="idioma">Idioma:</label>
+<select id="idioma" name="idioma">
+    <option value="pt-br">Português</option>
+    <option value="en">Inglês</option>
+</select>
+                </select>
+            </div>
+
+            <div id="privacidade" class="tabcontent">
+                <h2>Privacidade</h2>
+                <label for="compartilharEmail">Compartilhar meu e-mail:</label>
+                <input type="checkbox" id="compartilharEmail" name="compartilharEmail">
+                <br>
+                <label for="compartilharTelefone">Compartilhar meu telefone:</label>
+                <input type="checkbox" id="compartilharTelefone" name="compartilharTelefone">
+                <br>
+                <h2>Alterar Senha</h2>
+                <label for="senhaAtual">Senha Atual:</label>
+<input type="password" id="senhaAtual" name="senhaAtual" required>
+<br>
+<label for="novaSenha">Nova Senha:</label>
+<input type="password" id="novaSenha" name="novaSenha" required>
+<br>
+<label for="confirmarSenha">Confirmar Senha:</label>
+<input type="password" id="confirmarSenha" name="confirmarSenha" required>
+<br>
+            </div>
+
+            <div id="notificacoes" class="tabcontent">
+                <h2>Notificações</h2>
+                <label for="notificacoesEmail">Receber notificações por e-mail:</label>
+                <input type="checkbox" id="notificacoesEmail" name="notificacoesEmail" checked>
+                <br>
+                <label for="notificacoesSMS">Receber notificações por SMS:</label>
+                <input type="checkbox" id="notificacoesSMS" name="notificacoesSMS">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Função para abrir as abas de configuração
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";  
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Definir a aba "Aparência" como padrão
+        document.getElementsByClassName("tablinks")[0].click();
+    </script>
+</body>
+</html>
